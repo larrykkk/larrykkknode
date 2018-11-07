@@ -7,6 +7,7 @@ var logger = require("morgan");
 var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var cors = require("cors");
+var mysql = require("mysql");
 
 //passport
 var session = require("express-session");
