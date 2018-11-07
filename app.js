@@ -8,6 +8,8 @@ var exphbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var cors = require("cors");
 
+var holdDB = require("./middlewares/query");
+
 //passport
 var session = require("express-session");
 const passport = require("passport");
@@ -86,6 +88,7 @@ app.use(function(req, res, next) {
 });
 
 // error handler
+app.use(holdDB);
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
