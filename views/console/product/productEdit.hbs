@@ -1,0 +1,19 @@
+<form action="edit" method="post" class="addProduct-form" enctype="multipart/form-data">
+
+    <label for="name">商品名</label>
+    <input type="text" name="name" id="name" value="{{product.name}}" required readonly>
+
+    <label for="price">售價</label>
+    <input type="text" name="price" id="price" value="{{product.price}}" required>
+
+    <label for="img">商品圖片</label>
+    <div><img src="{{product.image}}" alt=""></div>
+    <input type="file" name="img" id="img" value="{{product.image}}">
+
+    <label for="description">描述</label>
+    <textarea name="description" id="description" cols="30" rows="10" required>{{product.description}}</textarea>
+
+    <button type="submit" class="btn btn-primary mt-4">修改</button>
+    <button type="button" class="btn btn-secondary mt-2" onclick="javascript:location.href='./'">取消</button>
+
+</form>

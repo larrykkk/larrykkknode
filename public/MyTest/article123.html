@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel='stylesheet' href='./stylesheets/style.css' />
+</head>
+
+<body>
+
+    <link rel="stylesheet" href="./stylesheets/addProduct.css">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/users/login">登入 <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <main class="container-fluid p-0 m-0">
+        <div class="row no-gutters">
+            <div class="col-4 col-sm-3 col-md-2 col-lg-2 bg-dark side-menu">
+                <ul>
+                    <li><a href="./" class="nav-link text-light">首頁</a></li>
+                    <li><a href="./Product.html" class="nav-link text-light">商品列表</a></li>
+                    <li><a href="./addProduct.html" class="nav-link text-light">新增商品</a></li>
+                    <li><a href="./Article.html" class="nav-link text-light">文章</a></li>
+                    <li><a href="./addArticle.html" class="nav-link text-light">新增文章</a></li>
+                </ul>
+            </div>
+            <div class="col-8 col-sm col-md-10 col-lg p-2 p-md-5">
+                <article>
+                    <a href="/edit">編輯</a>
+                    <a href="" class="text-danger" onclick="Delete('{{}}')">刪除</a>
+                    <div>
+                        <img src="https://fakeimg.pl/350x200/?text=World&font=lobster" alt="">
+                    </div>
+                    <h3 class="article-title">title</h3>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus similique magnam atque
+                        asperiores eius molestias ullam sed aliquam nesciunt, nemo placeat dignissimos minima, sunt
+                        ducimus labore, veniam ipsa? Commodi, odio?
+                        Vel iusto itaque placeat optio quaerat ex possimus, culpa iure ipsum quas? Deleniti nobis
+                        perferendis, blanditiis maxime nisi neque veniam repudiandae enim officia saepe delectus
+                        reiciendis. Dolorum culpa est doloribus.
+                        Alias, ipsum praesentium? Possimus aliquam officia repellat accusantium reprehenderit quos
+                        repudiandae tempora architecto dolorum a fuga, non dicta omnis magnam ut explicabo inventore
+                        quaerat. Nesciunt eius cum provident quae ullam!
+                        Sint cumque officia necessitatibus corrupti sunt, esse dolor velit saepe odio mollitia corporis
+                        magni autem vitae, provident tempore architecto. Corporis dolore commodi quisquam accusantium
+                        ab provident sequi saepe fuga quasi.
+                        Ad totam recusandae, sapiente quae tenetur eos eius eligendi dignissimos temporibus, sequi, ab
+                        possimus nam! Reiciendis asperiores exercitationem veniam suscipit dolore, itaque laudantium
+                        ullam, ipsa voluptate sequi esse facilis quas?
+                    </p>
+                </article>
+                <hr>
+                <article>
+                    <a href="/edit">編輯</a>
+                    <a href="" class="text-danger" onclick="Delete('{{}}')">刪除</a>
+                    <div>
+                        <img src="https://fakeimg.pl/350x200/?text=World&font=lobster" alt="">
+                    </div>
+                    <h3 class="article-title">title</h3>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus similique magnam atque
+                        asperiores eius molestias ullam sed aliquam nesciunt, nemo placeat dignissimos minima, sunt
+                        ducimus labore, veniam ipsa? Commodi, odio?
+                        Vel iusto itaque placeat optio quaerat ex possimus, culpa iure ipsum quas? Deleniti nobis
+                        perferendis, blanditiis maxime nisi neque veniam repudiandae enim officia saepe delectus
+                        reiciendis. Dolorum culpa est doloribus.
+                        Alias, ipsum praesentium? Possimus aliquam officia repellat accusantium reprehenderit quos
+                        repudiandae tempora architecto dolorum a fuga, non dicta omnis magnam ut explicabo inventore
+                        quaerat. Nesciunt eius cum provident quae ullam!
+                        Sint cumque officia necessitatibus corrupti sunt, esse dolor velit saepe odio mollitia corporis
+                        magni autem vitae, provident tempore architecto. Corporis dolore commodi quisquam accusantium
+                        ab provident sequi saepe fuga quasi.
+                        Ad totam recusandae, sapiente quae tenetur eos eius eligendi dignissimos temporibus, sequi, ab
+                        possimus nam! Reiciendis asperiores exercitationem veniam suscipit dolore, itaque laudantium
+                        ullam, ipsa voluptate sequi esse facilis quas?
+                    </p>
+                </article>
+                <hr>
+                <article>
+                    <a href="/edit">編輯</a>
+                    <a href="" class="text-danger" onclick="Delete('{{}}')">刪除</a>
+                    <div>
+                        <img src="https://fakeimg.pl/350x200/?text=World&font=lobster" alt="">
+                    </div>
+                    <h3 class="article-title">title</h3>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus similique magnam atque
+                        asperiores eius molestias ullam sed aliquam nesciunt, nemo placeat dignissimos minima, sunt
+                        ducimus labore, veniam ipsa? Commodi, odio?
+                        Vel iusto itaque placeat optio quaerat ex possimus, culpa iure ipsum quas? Deleniti nobis
+                        perferendis, blanditiis maxime nisi neque veniam repudiandae enim officia saepe delectus
+                        reiciendis. Dolorum culpa est doloribus.
+                        Alias, ipsum praesentium? Possimus aliquam officia repellat accusantium reprehenderit quos
+                        repudiandae tempora architecto dolorum a fuga, non dicta omnis magnam ut explicabo inventore
+                        quaerat. Nesciunt eius cum provident quae ullam!
+                        Sint cumque officia necessitatibus corrupti sunt, esse dolor velit saepe odio mollitia corporis
+                        magni autem vitae, provident tempore architecto. Corporis dolore commodi quisquam accusantium
+                        ab provident sequi saepe fuga quasi.
+                        Ad totam recusandae, sapiente quae tenetur eos eius eligendi dignissimos temporibus, sequi, ab
+                        possimus nam! Reiciendis asperiores exercitationem veniam suscipit dolore, itaque laudantium
+                        ullam, ipsa voluptate sequi esse facilis quas?
+                    </p>
+                </article>
+                <hr>
+
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

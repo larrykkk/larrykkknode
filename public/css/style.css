@@ -1,0 +1,104 @@
+#index-logo-block{
+    width: 180px;
+    height: auto;
+    position: relative;
+    margin-top:15%;
+}
+
+.index-logo{
+    width: 100%;
+    height: 100%;
+}
+
+
+.index-logo img{
+    width: 100%;
+    width: 100%;
+}
+
+span,p{
+    font-family: 微軟正黑體;
+    color: #777;
+}
+
+
+.spantext{
+    margin: 10px 0 10px 0; 
+    font-weight: 600;
+}
+
+/* #page-logo-block{
+    width: 180px;
+    position: relative;
+    margin-top:15%;
+}
+.page-logo{
+    width: 50%;
+    height: 100%;
+}
+
+.page-logo img{
+    width: 100%;
+    width: 100%;
+} */
+
+/*RWD*/
+
+ @media only screen and (max-width: 768px){
+    #index-logo-block{
+        width: 125px;
+        margin-top: 9%;
+        margin-left: 2%;
+    }
+}
+
+ @media only screen and (max-width: 320px){
+    #index-logo-block{
+        width: 100px;
+        margin-top:11%;
+        margin-left: 0%;
+    }	
+ }
+
+ @media only screen and (min-width: 768px){
+     #index-logo-block{
+         margin-top:0%;
+         width: 200px;
+        }
+ }
+
+ @media only screen and (min-width: 1024px){
+     #index-logo-block{
+         margin-top:6%;
+        }
+ }
+
+
+  @media only screen and (max-width: 768px){
+    #index-logo-block{
+        width: 125px;
+        margin-top: 9%;
+        margin-left: 2%;
+    }
+}
+
+ @media only screen and (max-width: 320px){
+    #index-logo-block{
+        width: 100px;
+        margin-top:11%;
+        margin-left: 0%;
+    }	
+ }
+
+ @media only screen and (min-width: 768px){
+     #index-logo-block{
+         margin-top:0%;
+         width: 200px;
+        }
+ }
+
+ @media only screen and (min-width: 1024px){
+     #index-logo-block{
+         margin-top:6%;
+        }
+ }

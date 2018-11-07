@@ -1,0 +1,14 @@
+<form action="edit" method="post" class="addProduct-form" enctype="multipart/form-data">
+    <label for="articleImg"></label>文章封面</label>
+    <div><img src="{{article.imgUrl}}" alt=""></div>
+    <input type="file" name="img" id="articleImg" value="{{article.imgUrl}}">
+
+    <label for="articleName">文章標題</label>
+    <input type="text" name="title" id="articleName" value="{{article.title}}" required readonly>
+
+    <label for="articleContent">文章內容</label>
+    <textarea name="content" id="" cols="30" rows="10" required>{{article.content}}</textarea>
+
+    <button type="submit" class="btn btn-primary mt-4">新增</button>
+    <button type="button" class="btn btn-secondary mt-2" onclick="javascript:location.href='./'">取消</button>
+</form>

@@ -1,0 +1,32 @@
+<div class="card-group flex-wrap">
+    {{#each product}}
+    <div class="card">
+        <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <p class="card-text"><small class="text-muted">NT$: {{this.price}} </small></p>
+        </div>
+        <button class="btn btn-secondary" onclick="Edit('{{this.name}}')">編輯</button>
+        <button class="btn btn-danger" onclick="Delete('{{this.name}}')">刪除</button>
+    </div>
+    {{/each}}
+</div>
+
+
+<script>
+    //編輯、刪除、查詢
+    function Edit(id) {
+        window.location.href = window.location.pathname + "/Edit?id=" + id;
+    }
+    function Delete(id) {
+        var rs = confirm("Confirm to delete?");
+        if (rs) {
+            window.location.href = window.location.pathname + "/delete?id=" + id;
+        }
+    }
+    function Search() {
+        var userid = document.getElementsByName("suserid")[0].value;
+        window.location.href = "/?user=" + userid;
+    }
+</script>

@@ -1,0 +1,20 @@
+<form action="./add" method="post" class="addProduct-form" enctype="multipart/form-data">
+    <label for="prodImg">商品圖片</label>
+    <input type="file" name="img" id="prodImg" accept="image/*">
+
+    <label for="prodName">商品名</label>
+    <input type="text" name="name" id="prodName" required>
+
+    <label for="prodPrice">售價</label>
+    <input type="text" name="price" id="prodPrice" required>
+
+    <label for="prodDescription">描述</label>
+    <textarea name="description" id="" cols="30" rows="10" required></textarea>
+
+    <button type="submit" class="btn btn-primary mt-4">新增</button>
+    <button type="button" class="btn btn-secondary mt-2" onclick="javascript:location.href='./'">取消</button>
+</form>
+{{success}}
+{{error}}
+
+{{!-- enctype="multipart/form-data" --}}
