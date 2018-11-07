@@ -52,8 +52,6 @@ app.use(
   })
 );
 
-
-
 //auth
 require("./config/passport")(passport); // pass passport for configuration
 
