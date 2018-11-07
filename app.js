@@ -98,10 +98,10 @@ app.use(function(err, req, res, next) {
 });
 
 var db_config = {
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "example"
+  host: "us-cdbr-iron-east-01.cleardb.net",
+  user: "ba3d4254d4f42e",
+  password: "28dc64c9",
+  database: "heroku_d8b573c814ae11b"
 };
 
 var connection;
