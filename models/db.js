@@ -3,7 +3,8 @@ var db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "root",
-  database: "nodeproject"
+  database: "nodeproject",
+  port: "3306"
 });
 
 db.connect(function(err) {
