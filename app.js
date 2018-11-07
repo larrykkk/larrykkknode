@@ -132,6 +132,6 @@ function handleDisconnect() {
   });
 }
 
-handleDisconnect();
+app.use(handleDisconnect());
 
 module.exports = app;
