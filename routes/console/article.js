@@ -12,7 +12,7 @@ const storagePath = "http://localhost:3000/uploads/"; //儲存路徑
 
 //文章
 router.get("/", function(req, res, next) {
-  var query = pool.query("select * from article", function(err, rows) {
+  var query = db.query("select * from article", function(err, rows) {
     if (err) {
       console.log(err);
     }
@@ -54,7 +54,7 @@ router.post("/add", function(req, res, next) {
     var newArticle = [["", addItem.name, addItem.content, addItem.img]];
 
     console.log(newArticle);
-    var query = pool.query(
+    var query = db.query(
       "insert into article (ID, title, content, imgUrl) VALUES ?",
       [newArticle],
       function(err, rows) {
@@ -74,7 +74,7 @@ router.post("/add", function(req, res, next) {
 
 router.get("/edit", function(req, res, next) {
   var id = req.query.id;
-  var query = pool.query(
+  var query = db.query(
     "SELECT * FROM article WHERE title = ?",
     [id],
     function(err, rows) {
@@ -109,7 +109,7 @@ router.post("/edit", function(req, res, next) {
       imgUrl: storagePath + files.img.name
     };
 
-    var query = pool.query(
+    var query = db.query(
       "UPDATE article SET title = ?, content = ?, imgUrl = ? WHERE title = ?",
       [article.title, article.content, article.imgUrl, article.title],
       function(err, rows) {
@@ -126,7 +126,7 @@ router.post("/edit", function(req, res, next) {
 router.get("/delete", function(req, res, next) {
   var article = req.query.id;
 
-  var query = pool.query(
+  var query = db.query(
     "DELETE FROM article WHERE title = ?",
     [article],
     function(err, rows) {

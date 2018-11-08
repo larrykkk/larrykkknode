@@ -9,7 +9,7 @@ var bodyParser = require("body-parser");
 var cors = require("cors");
 var mysql = require("mysql");
 
-var hold = require("./middlewares/hold");
+// var hold = require("./middlewares/hold");
 
 //passport
 var session = require("express-session");
@@ -100,6 +100,6 @@ app.use(function(err, req, res, next) {
   res.render("error");
 });
 
-app.use(hold);
+// app.use(hold);
 
 module.exports = app;
