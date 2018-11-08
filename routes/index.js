@@ -7,7 +7,8 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // /* GET home page. */
 router.get("/", function(req, res, next) {
-  res.redirect("http://localhost:3000/console/login");
+  res.redirect("https://larrykkknode.herokuapp.com/console/login");
 });
 
 module.exports = router;
+ㄋ;
