@@ -9,7 +9,6 @@ var bcrypt = require("bcrypt-nodejs");
 // var dbconfig = require("./database");
 // var db = mysql.createConnection(dbconfig.connection);
 
-z;
 var pool = require("../models/hdb");
 // expose this function to our app using module.exports
 module.exports = function(passport) {
