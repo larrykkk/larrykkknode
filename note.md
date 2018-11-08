@@ -6,4 +6,4 @@ Step two:
 
 taskkill /PID 5000 /F
 
-testtestㄊ
+testtestt
