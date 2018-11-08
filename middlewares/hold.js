@@ -1,31 +1,38 @@
 var mysql = require("mysql");
-var pool = mysql.createPool({
-  host: "your host",
-  user: "your account",
-  password: "your password",
-  database: "your database",
-  connectionLimit: 10 // 可以自己設定
-});
 
-var query = function(sql, options, callback) {
-  console.log(sql, options, callback);
-  if (typeof options === "function") {
-    callback = options;
-    options = undefined;
-  }
-  pool.getConnection(function(err, conn) {
-    if (err) {
-      callback(err, null, null);
-    } else {
-      conn.query(sql, options, function(err, results, fields) {
-        // callback
-        callback(err, results, fields);
-      });
-      // release connection。
-      // 要注意的是，connection 的釋放需要在此 release，而不能在 callback 中 release
-      conn.release();
-    }
-  });
+var db_config = {
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "example"
 };
 
-module.exports = query;
+var connection;
+
+function handleDisconnect() {
+  connection = mysql.createConnection(db_config); // Recreate the connection, since
+  // the old one cannot be reused.
+
+  connection.connect(function(err) {
+    // The server is either down
+    if (err) {
+      // or restarting (takes a while sometimes).
+      console.log("error when connecting to db:", err);
+      setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+    } // to avoid a hot loop, and to allow our node script to
+  }); // process asynchronous requests in the meantime.
+  // If you're also serving http, display a 503 error.
+  connection.on("error", function(err) {
+    console.log("db error", err);
+    if (err.code === "PROTOCOL_CONNECTION_LOST") {
+      // Connection to the MySQL server is usually
+      handleDisconnect(); // lost due to either server restart, or a
+    } else {
+      // connnection idle timeout (the wait_timeout
+      throw err; // server variable configures this)
+    }
+  });
+}
+
+handleDisconnect();
+module.exports = handleDisconnect;
