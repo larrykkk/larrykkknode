@@ -5,7 +5,7 @@ function isLoggedIn(req, res, next) {
 
   // if they aren't redirect them to the home page
   console.log("oo");
-  res.redirect("https://larrykkknode.herokuapp.com/console/login1");
+  res.redirect("https://larrykkknode.herokuapp.com/console/login");
   // res.redirect("./login");
 }
 
