@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
-var pool = require("../../models/hdb");
+// var pool = require("../../models/hdb");
+var db = require("../../models/db");
 
 // 解析上傳檔案模組
 var formidable = require("formidable"),

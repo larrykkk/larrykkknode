@@ -7,8 +7,27 @@ var db = mysql.createConnection({
   // port: "3306"
 });
 
-db.connect(function(err) {
-  if (err) throw err;
-});
+// db.connect(function(err) {
+//   if (err) throw err;
+// });
+
+// 連接數據庫
+function connect() {
+  db.connect(handleError);
+  db.on("error", handleError);
+}
+
+function handleError(err) {
+  if (err) {
+    // 如果是連接斷開，自動重新連接
+    if (err.code === "PROTOCOL_CONNECTION_LOST") {
+      connect();
+    } else {
+      console.error(err.stack || err);
+    }
+  }
+}
+
+connect();
 
 module.exports = db;
