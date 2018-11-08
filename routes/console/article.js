@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var db = require("../../models/db");
+var pool = require("../../models/hdb");
 
 // 解析上傳檔案模組
 var formidable = require("formidable"),
@@ -11,7 +11,7 @@ const storagePath = "http://localhost:3000/uploads/"; //儲存路徑
 
 //文章
 router.get("/", function(req, res, next) {
-  var query = db.query("select * from article", function(err, rows) {
+  var query = pool.query("select * from article", function(err, rows) {
     if (err) {
       console.log(err);
     }
@@ -53,7 +53,7 @@ router.post("/add", function(req, res, next) {
     var newArticle = [["", addItem.name, addItem.content, addItem.img]];
 
     console.log(newArticle);
-    var query = db.query(
+    var query = pool.query(
       "insert into article (ID, title, content, imgUrl) VALUES ?",
       [newArticle],
       function(err, rows) {
@@ -73,13 +73,14 @@ router.post("/add", function(req, res, next) {
 
 router.get("/edit", function(req, res, next) {
   var id = req.query.id;
-  var query = db.query("SELECT * FROM article WHERE title = ?", [id], function(
-    err,
-    rows
-  ) {
-    var data = rows;
-    res.render("console/article/articleEdit", { article: data[0] });
-  });
+  var query = pool.query(
+    "SELECT * FROM article WHERE title = ?",
+    [id],
+    function(err, rows) {
+      var data = rows;
+      res.render("console/article/articleEdit", { article: data[0] });
+    }
+  );
 });
 
 router.post("/edit", function(req, res, next) {
@@ -107,7 +108,7 @@ router.post("/edit", function(req, res, next) {
       imgUrl: storagePath + files.img.name
     };
 
-    var query = db.query(
+    var query = pool.query(
       "UPDATE article SET title = ?, content = ?, imgUrl = ? WHERE title = ?",
       [article.title, article.content, article.imgUrl, article.title],
       function(err, rows) {
@@ -124,7 +125,7 @@ router.post("/edit", function(req, res, next) {
 router.get("/delete", function(req, res, next) {
   var article = req.query.id;
 
-  var query = db.query(
+  var query = pool.query(
     "DELETE FROM article WHERE title = ?",
     [article],
     function(err, rows) {

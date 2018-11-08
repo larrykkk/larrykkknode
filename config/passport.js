@@ -9,7 +9,8 @@ var bcrypt = require("bcrypt-nodejs");
 // var dbconfig = require("./database");
 // var db = mysql.createConnection(dbconfig.connection);
 
-var db = require("../models/db");
+z;
+var pool = require("../models/hdb");
 // expose this function to our app using module.exports
 module.exports = function(passport) {
   // =========================================================================
@@ -25,7 +26,7 @@ module.exports = function(passport) {
 
   // used to deserialize the user
   passport.deserializeUser(function(id, done) {
-    db.query("SELECT * FROM user WHERE id = ? ", [id], function(err, rows) {
+    pool.query("SELECT * FROM user WHERE id = ? ", [id], function(err, rows) {
       done(err, rows[0]);
     });
   });
@@ -48,7 +49,7 @@ module.exports = function(passport) {
       function(req, username, password, done) {
         // find a user whose email is the same as the forms email
         // we are checking to see if the user trying to login already exists
-        db.query("SELECT * FROM user WHERE username = ?", username, function(
+        pool.query("SELECT * FROM user WHERE username = ?", username, function(
           err,
           rows
         ) {
@@ -70,7 +71,7 @@ module.exports = function(passport) {
             var insertQuery =
               "INSERT INTO user ( username, password ) values (?,?)";
 
-            db.query(
+            pool.query(
               insertQuery,
               [newUserMysql.username, newUserMysql.password],
               function(err, rows) {
@@ -103,7 +104,7 @@ module.exports = function(passport) {
       },
       function(req, username, password, done) {
         // callback with email and password from our form
-        db.query("SELECT * FROM user WHERE username = ?", username, function(
+        pool.query("SELECT * FROM user WHERE username = ?", username, function(
           err,
           rows
         ) {

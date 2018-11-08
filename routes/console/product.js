@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var db = require("../../models/db");
+var pool = require("../../models/hdb");
 
 // 解析上傳檔案模組
 var formidable = require("formidable"),
@@ -11,7 +11,7 @@ const storagePath = "http://localhost:3000/uploads/"; //儲存路徑
 
 //商品列表
 router.get("/", function(req, res, next) {
-  var query = db.query("select * from product", function(err, rows) {
+  var query = pool.query("select * from product", function(err, rows) {
     if (err) {
       console.log(err);
     }
@@ -40,11 +40,10 @@ router.post("/add", function(req, res, next) {
   });
 
   form.parse(req, function(err, fields, files) {
-
     var imgUrl = storagePath + files.img.name; //照片連結
 
     var product = [[fields.name, fields.price, imgUrl, fields.description]];
-    var insertProduct = db.query(
+    var insertProduct = pool.query(
       "insert into product (name, price, image, description) VALUES ?",
       [product],
       function(err, rows) {
@@ -65,7 +64,7 @@ router.post("/add", function(req, res, next) {
 //修改商品
 router.get("/edit", function(req, res, next) {
   var id = req.query.id;
-  var query = db.query("SELECT * FROM product WHERE name = ?", [id], function(
+  var query = pool.query("SELECT * FROM product WHERE name = ?", [id], function(
     err,
     rows
   ) {
@@ -87,7 +86,6 @@ router.post("/edit", function(req, res, next) {
   });
 
   form.parse(req, function(err, fields, files) {
-
     var update = {
       name: fields.name,
       price: fields.price,
@@ -95,7 +93,7 @@ router.post("/edit", function(req, res, next) {
       description: fields.description
     };
 
-    var query = db.query(
+    var query = pool.query(
       "UPDATE product SET name = ?, price = ?, image = ?, description = ? WHERE name = ?",
       [update.name, update.price, update.img, update.description, update.name],
       function(err, rows) {
@@ -112,7 +110,7 @@ router.post("/edit", function(req, res, next) {
 router.get("/delete", function(req, res, next) {
   var productDel = req.query.id;
 
-  var query = db.query(
+  var query = pool.query(
     "DELETE FROM product WHERE name = ?",
     [productDel],
     function(err, rows) {
